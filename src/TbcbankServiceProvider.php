@@ -2,9 +2,9 @@
 
 namespace GiorgiGigauri\TbcBank;
 
+use GiorgiGigauri\TbcBank\Commands\TbcbankCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use GiorgiGigauri\TbcBank\Commands\TbcbankCommand;
 
 class TbcBankServiceProvider extends PackageServiceProvider
 {
