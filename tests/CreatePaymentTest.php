@@ -29,6 +29,6 @@ it('has token', function () {
     expect($this->payment)->toHaveKey('token');
 });
 
-it('has amount', function () {
+it('has url', function () {
     expect($this->payment)->toHaveKey('url');
 });
