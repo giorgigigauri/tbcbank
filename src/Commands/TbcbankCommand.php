@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace GiorgiGigauri\TbcBank\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class TbcbankCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'tbcbank';
 
     public $description = 'My command';
 

@@ -1,18 +1,19 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "giorgigigauri/tbcbank",
+    "description": "Tbc Bank payments solution",
     "keywords": [
-        ":vendor_name",
+        "giorgi gigauri",
         "laravel",
-        ":package_slug"
+        "tbcbank",
+        "redberry"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/giorgigigauri/tbcbank",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
+            "name": ":Giorgi Gigauri",
+            "email": "ggg.gigauri@gmail.com",
+            "role": "Lead Developer"
         }
     ],
     "require": {
@@ -35,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "GiorgiGigauri\\TbcBank\\": "src",
+            "GiorgiGigauri\\TbcBank\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "GiorgiGigauri\\TbcBank\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,10 +57,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "GiorgiGigauri\\TbcBank\\TbcBankServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "TbcBank": "TbcBank"
             }
         }
     },
