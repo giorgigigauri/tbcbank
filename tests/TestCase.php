@@ -2,9 +2,9 @@
 
 namespace GiorgiGigauri\TbcBank\Tests;
 
+use GiorgiGigauri\TbcBank\TbcBankServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use GiorgiGigauri\TbcBank\TbcBankServiceProvider;
 
 class TestCase extends Orchestra
 {

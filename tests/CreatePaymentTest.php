@@ -2,14 +2,13 @@
 
 use GiorgiGigauri\TbcBank\Facades\TbcBank;
 
-
 beforeEach(function () {
     $this->amount = [
-        "currency" => "GEL",
-        "total" => 546,
-        "subTotal" => 400,
-        "tax" => 0,
-        "shipping" => 0
+        'currency' => 'GEL',
+        'total' => 546,
+        'subTotal' => 400,
+        'tax' => 0,
+        'shipping' => 0,
     ];
     $this->payment = TbcBank::setAmount($this->amount)
         ->setReturnUrl('shopping.ge/callback')
