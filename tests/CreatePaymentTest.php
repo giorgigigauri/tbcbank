@@ -32,4 +32,3 @@ it('returns 200', function () {
 it('has data', function () {
     expect($this->payment)->toHaveKeys(['links', 'payId']);
 });
-
