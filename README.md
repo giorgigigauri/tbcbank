@@ -52,6 +52,15 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="tbcbank-views"
 ```
 
+## Enviromental variables .env
+
+```php
+TBC_API_URL=
+TBC_CLIENT_ID=
+TBC_CLIENT_SECRET=
+TBC_API_KEY=
+```
+
 ## Usage
 
 ```php

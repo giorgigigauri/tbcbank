@@ -1,6 +1,7 @@
 <?php
 
 use GiorgiGigauri\TbcBank\Facades\TbcBank;
+use Illuminate\Http\Response;
 
 beforeEach(function () {
     $this->amount = [
@@ -24,10 +25,11 @@ it('returns array', function () {
     expect($this->payment)->toBeArray();
 });
 
-it('has token', function () {
-    expect($this->payment)->toHaveKey('token');
+it('returns 200', function () {
+    expect($this->payment['httpStatusCode'])->toEqual(Response::HTTP_OK);
 });
 
-it('has url', function () {
-    expect($this->payment)->toHaveKey('url');
+it('has data', function () {
+    expect($this->payment)->toHaveKeys(['links', 'payId']);
 });
+

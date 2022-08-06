@@ -10,6 +10,6 @@ it('can test', function () {
     expect(true)->toBeTrue();
 });
 
-it('returns array', function () {
+it('returns token', function () {
     expect($this->GetAccessToken->execute())->toBeString();
 });
