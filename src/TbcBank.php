@@ -50,9 +50,11 @@ class TbcBank
                 'apikey' => config('tbcbank.api_key'),
             ])
                 ->withToken($this->token)
-                ->post(config('tbcbank.api_url') . 'payments', [
-                    'client_Id' => config('tbcbank.client_id'),
-                    'client_secret' => config('tbcbank.client_secret'),
+                ->post(config('tbcbank.api_url') . 'payments',
+                [
+                    'amount' => $this->amount,
+                    'returnUrl' => $this->returnUrl,
+                    'extra' => $this->extra,
                 ])->json();
         } catch (HttpClientException $exception) {
             return [];
