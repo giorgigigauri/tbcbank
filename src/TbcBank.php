@@ -3,6 +3,7 @@
 namespace GiorgiGigauri\TbcBank;
 
 use GiorgiGigauri\TbcBank\Actions\GetAccessToken;
+use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Http;
 
 class TbcBank
@@ -20,29 +21,30 @@ class TbcBank
         $this->token = $token->execute();
     }
 
-    public function setAmount($amount)
+    public function setAmount($amount): static
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    public function setExtra($extra)
+    public function setExtra($extra): static
     {
         $this->extra = $extra;
 
         return $this;
     }
 
-    public function setReturnUrl($returnUrl)
+    public function setReturnUrl($returnUrl): static
     {
         $this->returnUrl = $returnUrl;
 
         return $this;
     }
 
-    public function createPayment()
+    public function createPayment(): array
     {
+
         try {
             $data = Http::withHeaders([
                 'apikey' => config('tbcbank.api_key'),
@@ -52,32 +54,10 @@ class TbcBank
                     'client_Id' => config('tbcbank.client_id'),
                     'client_secret' => config('tbcbank.client_secret'),
                 ])->json();
-        } catch (\Exception $exception) {
-            return [
-                'error' => $exception,
-            ];
+        } catch (HttpClientException $exception) {
+            return [];
         }
 
-        return [
-            "payId" => "tpay-fkgokd18839",
-            "status" => "Created",
-            "links" => [
-                [
-                    "uri" => "https://tpaypaymentapi.test.loc:8079/v1/Payments/tpay-fkgokd18839",
-                    "me[od" => "GET",
-                    "rel" => "=>elf"
-                ],
-                [
-                    "uri" => "https://tpaycheckoutweb.test.loc:8078/checkout/tpay-fkgokd18839",
-                    "method" => "REDIRECT",
-                    "rel" => "approval_url"
-                ]
-            ],
-            "transactionId" => null,
-            "httpStatusCode" => 200,
-            "developerMessage" => null,
-            "userMessage" => null
-        ];
         return $data;
     }
 }
