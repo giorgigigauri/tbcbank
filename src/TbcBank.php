@@ -44,18 +44,17 @@ class TbcBank
 
     public function createPayment(): array
     {
-
         try {
             $data = Http::withHeaders([
                 'apikey' => config('tbcbank.api_key'),
             ])
                 ->withToken($this->token)
-                ->post(config('tbcbank.api_url') . 'payments',
-                [
-                    'amount' => $this->amount,
-                    'returnUrl' => $this->returnUrl,
-                    'extra' => $this->extra,
-                ])->json();
+                ->post(config('tbcbank.api_url').'payments',
+                    [
+                        'amount' => $this->amount,
+                        'returnUrl' => $this->returnUrl,
+                        'extra' => $this->extra,
+                    ])->json();
         } catch (HttpClientException $exception) {
             return [];
         }

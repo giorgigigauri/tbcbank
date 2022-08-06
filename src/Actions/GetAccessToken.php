@@ -15,8 +15,7 @@ class GetAccessToken
                 'client_Id' => config('tbcbank.client_id'),
                 'client_secret' => config('tbcbank.client_secret'),
             ])->json();
-            if(!empty($data['access_token']))
-            {
+            if (! empty($data['access_token'])) {
                 return $data['access_token'];
             }
         } catch (\Exception $exception) {
