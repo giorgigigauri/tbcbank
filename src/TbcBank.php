@@ -44,13 +44,12 @@ class TbcBank
 
     public function createPayment(): array
     {
-
         try {
             $data = Http::withHeaders([
                 'apikey' => config('tbcbank.api_key'),
             ])
                 ->withToken($this->token)
-                ->post(config('tbcbank.api_url') . 'payments', [
+                ->post(config('tbcbank.api_url').'payments', [
                     'client_Id' => config('tbcbank.client_id'),
                     'client_secret' => config('tbcbank.client_secret'),
                 ])->json();
