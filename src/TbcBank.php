@@ -19,6 +19,7 @@ class TbcBank
     public function __construct(GetAccessToken $token)
     {
         $this->token = $token->execute();
+        $this->setCallbackUrl();
     }
 
     public function setAmount($amount): static
@@ -31,6 +32,13 @@ class TbcBank
     public function setExtra($extra): static
     {
         $this->extra = $extra;
+
+        return $this;
+    }
+
+    public function setCallbackUrl(): static
+    {
+        $this->callbackUrl = route(config('callback_route'));
 
         return $this;
     }
