@@ -16,6 +16,8 @@ class TbcBank
 
     private $token;
 
+    private $callbackUrl;
+
     public function __construct(GetAccessToken $token)
     {
         $this->token = $token->execute();
@@ -61,6 +63,7 @@ class TbcBank
                     [
                         'amount' => $this->amount,
                         'returnUrl' => $this->returnUrl,
+                        'callbackUrl' => $this->callbackUrl,
                         'extra' => $this->extra,
                     ])->json();
         } catch (HttpClientException $exception) {
