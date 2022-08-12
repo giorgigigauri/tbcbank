@@ -40,7 +40,7 @@ class TbcBank
 
     public function setCallbackUrl(): static
     {
-        $this->callbackUrl = route(config('callback_route'));
+        $this->callbackUrl = route(config('tbcbank.callback_route'));
 
         return $this;
     }
