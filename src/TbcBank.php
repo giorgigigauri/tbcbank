@@ -40,7 +40,7 @@ class TbcBank
 
     public function setCallbackUrl(): static
     {
-        $this->callbackUrl = route(config('tbcbank.callback_route'));
+        $this->callbackUrl = config('tbcbank.callback_url');
 
         return $this;
     }
@@ -73,7 +73,7 @@ class TbcBank
         return $data;
     }
 
-    public function getPayment($payId): array
+    public function getPayment($payId)
     {
         try {
             $data = Http::withHeaders([
