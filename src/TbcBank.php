@@ -76,18 +76,15 @@ class TbcBank
     public function getPayment($payId)
     {
         try {
+
             $data = Http::withHeaders([
                 'apikey' => config('tbcbank.api_key'),
             ])
                 ->withToken($this->token)
-                ->get(config('tbcbank.api_url').'payments',
-                    [
-                        'payId' => $payId,
-                    ])->json();
+                ->get(config('tbcbank.api_url').'payments/' . $payId);
         } catch (HttpClientException $exception) {
             return [];
         }
-
-        return $data;
+        return $data->json();
     }
 }
