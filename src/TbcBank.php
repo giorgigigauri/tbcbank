@@ -73,6 +73,7 @@ class TbcBank
                         'returnUrl' => $this->returnUrl,
                         'callbackUrl' => $this->callbackUrl,
                         'extra' => $this->extra,
+                        'extra2' => $this->extra2,
                     ])->json();
         } catch (HttpClientException $exception) {
             return [];
