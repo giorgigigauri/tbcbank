@@ -13,6 +13,7 @@ class TbcBank
     private $returnUrl;
 
     private $extra = '';
+    private $extra2 = '';
 
     private $token;
 
@@ -34,6 +35,13 @@ class TbcBank
     public function setExtra($extra): static
     {
         $this->extra = $extra;
+
+        return $this;
+    }
+
+    public function setExtra2($extra2): static
+    {
+        $this->extra2 = $extra2;
 
         return $this;
     }
