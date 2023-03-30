@@ -81,6 +81,7 @@ class TbcBank
         } catch (HttpClientException $exception) {
             return [];
         }
+
         return [];
     }
 
