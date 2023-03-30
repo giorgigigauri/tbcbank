@@ -13,6 +13,7 @@ class TbcBank
     private $returnUrl;
 
     private $extra = '';
+
     private $extra2 = '';
 
     private $token;
