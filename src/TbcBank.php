@@ -75,11 +75,12 @@ class TbcBank
                         'extra' => $this->extra,
                         'extra2' => $this->extra2,
                     ])->json();
+
+            return $data;
         } catch (HttpClientException $exception) {
             return [];
         }
-
-        return $data;
+        return [];
     }
 
     public function getPayment($payId)
