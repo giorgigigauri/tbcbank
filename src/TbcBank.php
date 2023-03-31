@@ -69,7 +69,7 @@ class TbcBank
                 'apikey' => config('tbcbank.api_key'),
             ])
                 ->withToken($this->token)
-                ->post(config('tbcbank.api_url').'payments',
+                ->post('https://api.tbcbank.ge/v1/tpay/payments',
                     [
                         'amount' => $this->amount,
                         'returnUrl' => $this->returnUrl,
