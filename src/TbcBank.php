@@ -5,6 +5,7 @@ namespace GiorgiGigauri\TbcBank;
 use GiorgiGigauri\TbcBank\Actions\GetAccessToken;
 use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TbcBank
 {
@@ -79,6 +80,7 @@ class TbcBank
 
             return $data;
         } catch (HttpClientException $exception) {
+            Log::error($exception->getMessage());
             return [];
         }
         return [];
