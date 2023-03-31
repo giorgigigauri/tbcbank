@@ -80,9 +80,10 @@ class TbcBank
 
             return $data;
         } catch (HttpClientException $exception) {
-            Log::info($exception->getMessage());
+            Log::error($exception->getMessage());
             return [];
         }
+
         return [];
     }
 
