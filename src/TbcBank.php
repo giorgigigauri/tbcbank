@@ -83,6 +83,7 @@ class TbcBank
             Log::error($exception->getMessage());
             return [];
         }
+
         return [];
     }
 
