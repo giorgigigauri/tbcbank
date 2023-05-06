@@ -26,11 +26,21 @@ You can install the package via composer:
 composer require giorgigigauri/tbcbank
 ```
 
-You can publish and run the migrations with:
+## Enviromental variables .env
+
+```php
+TBC_API_URL=
+TBC_API_KEY=
+TBC_CLIENT_ID=
+TBC_CLIENT_SECRET=
+TBC_CALLBACK_URL=
+```
+
+You should publish the config with:
 
 ```bash
-php artisan vendor:publish --tag="tbcbank-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="tbcbank-config"
+php artisan optimize:clear
 ```
 
 You can publish the config file with:
@@ -52,20 +62,22 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="tbcbank-views"
 ```
 
-## Enviromental variables .env
-
-```php
-TBC_API_URL=
-TBC_CLIENT_ID=
-TBC_CLIENT_SECRET=
-TBC_API_KEY=
-```
-
 ## Usage
 
 ```php
-$tbcbank = new Giorgigigauri\Tbcbank();
-echo $tbcbank->echoPhrase('Hello, Giorgigigauri!');
+import Giorgigigauri\Facades\Tbcbank;
+    $amount = [
+        'currency' => 'GEL',
+        'total' => 546,
+        'subTotal' => 400,
+        'tax' => 0,
+        'shipping' => 0,
+    ];
+    $payment = TbcBank::setAmount($amount)
+        ->setReturnUrl('shopping.ge/callback')
+        ->setExtra('Test Text')
+        ->createPayment();
+    dd($payment);
 ```
 
 ## Testing
