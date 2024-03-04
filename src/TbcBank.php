@@ -17,6 +17,8 @@ class TbcBank
 
     private $extra2 = '';
 
+    private $apiKey = '';
+
     private $token;
 
     private $callbackUrl;
@@ -25,6 +27,7 @@ class TbcBank
     {
         $this->token = $token->execute();
         $this->setCallbackUrl();
+        $this->setApiKey(config('tbcbank.api_key'));
     }
 
     public function setAmount($amount): static
@@ -55,18 +58,30 @@ class TbcBank
         return $this;
     }
 
-    public function setReturnUrl($returnUrl): static
+    public function setCredentials(): static
     {
         $this->returnUrl = $returnUrl;
 
         return $this;
     }
 
+    public function setApiKey($apiKey): static
+    {
+        $this->apiKey = $apiKey;
+
+        return $this;
+    }
+
+    public function getApiKey(): static
+    {
+        return $this->apiKey;
+    }
+
     public function createPayment(): array
     {
         try {
             $data = Http::withHeaders([
-                'apikey' => config('tbcbank.api_key'),
+                'apikey' => $this->getApiKey(),
             ])
                 ->withToken($this->token)
                 ->post('https://api.tbcbank.ge/v1/tpay/payments',
