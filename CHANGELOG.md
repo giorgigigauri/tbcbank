@@ -2,6 +2,14 @@
 
 All notable changes to `tbcbank` will be documented in this file.
 
+## Release: v0.0.3 - 2024-03-04
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/giorgigigauri/tbcbank/pull/11
+
+**Full Changelog**: https://github.com/giorgigigauri/tbcbank/compare/v0.0.2...v0.0.3
+
 ## Release: v0.0.2 - 2023-06-30
 
 ### What's Changed
